@@ -18,10 +18,10 @@ Behavioral Tracking application
 
 ## Steps to Setup
 
-**1. Clone the application repo **
+** 1. Clone the application repo **
 
 
-**2. Build and run the backend app using maven**
+** 2. Build and run the backend app using maven**
 
 ```bash
 cd spring-boot-backend
