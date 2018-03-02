@@ -1,4 +1,4 @@
-# iAm-Behavioral-Analytics-Application-Spring-Boot
+# Behavioral Analytics Web Application
 
 # Spring Boot, MongoDB, Mustache (Template system)
 
