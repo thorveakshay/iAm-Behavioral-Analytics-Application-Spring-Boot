@@ -1,6 +1,6 @@
 # Behavioral Analytics Web Application
 
-# Spring Boot, MongoDB, Mustache (Template system)
+## Spring Boot, MongoDB, Mustache (Template system)
 
 Behavioral Tracking application
 
