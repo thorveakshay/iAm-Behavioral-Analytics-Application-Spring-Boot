@@ -116,7 +116,9 @@ var json = {
                 }
             ]
         }
-    ]
+    ],
+    sendResultOnPageNext: true,
+    showProgressBar: "top"
 };
 
 window.survey = new Survey.Model(json);

@@ -24,11 +24,12 @@ public class WelcomeController {
 	private String TITLE = "";
 
 	@RequestMapping("/")
-	public String welcome(Map<String, Object> model) {
-		model.put("title", TITLE);
-		model.put("message", MESSAGE);
-		return "welcome";
+	public String welcomeSurvey() {
+
+		return "index";
 	}
+	
+	
 
 	// test 5xx errors
 	@RequestMapping("/5xx")
@@ -36,14 +37,23 @@ public class WelcomeController {
 		throw new RuntimeException("ABC");
 	}
 
+	// landing page
+		@RequestMapping("/welcome")
+		public String home(Map<String, Object> model) {
+			model.put("title", TITLE);
+			model.put("message", MESSAGE);
+			return "welcome";
+		}
+
 	@RequestMapping(value = "/json/survey.htm", method = RequestMethod.POST)
 
 	public @ResponseBody String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request) {
 
 		System.out.println(data);
+
 		// String jsonData= JSON.stringify(data);
 		StoreToMongoDB obj = new StoreToMongoDB();
-		obj.saveToMongoDB(data);
+		obj.saveToMongoDB(data,"todays_mood");
 
 		return "welcome to survey";
 

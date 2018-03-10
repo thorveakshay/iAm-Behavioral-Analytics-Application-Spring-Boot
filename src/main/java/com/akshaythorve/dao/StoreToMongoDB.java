@@ -1,6 +1,5 @@
 package com.akshaythorve.dao;
 
-import java.net.UnknownHostException;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -16,12 +15,12 @@ import com.mongodb.util.JSON;
 
 public class StoreToMongoDB {
 
-	public void saveToMongoDB(String data) {
+	public void saveToMongoDB(String data, String collectionName) {
 		try {
 
 			Mongo mongo = new Mongo("localhost", 27017);
 			DB db = mongo.getDB("surveyDB");
-			DBCollection collection = db.getCollection("dummyColl");
+			DBCollection collection = db.getCollection(collectionName);
 
 			// convert JSON to DBObject directly
 			DBObject dbObject = (DBObject) JSON.parse(data);

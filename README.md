@@ -6,20 +6,19 @@ Behavioral Tracking application
 
 ## Requirements
 
-1. Java - 1.8.x
+1.  Java - 1.8.x
 
-2. Maven - 3.x.x
+2.  Maven - 3.x.x
 
-3. MongoDB - 3.x.x
+3.  MongoDB - 3.x.x
 
-4. Spring 5, Spring Boot
+4.  Spring 5, Spring Boot
 
-5. Mustache - 0.9.0
+5.  Mustache - 0.9.0
 
 ## Steps to Setup
 
 ** 1. Clone the application repo **
-
 
 ** 2. Build and run the backend app using maven**
 
