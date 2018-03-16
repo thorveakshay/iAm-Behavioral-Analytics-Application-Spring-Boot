@@ -27,12 +27,12 @@ public class StoreToMongoDB {
 
 			collection.insert(dbObject);
 
-			DBCursor cursorDoc = collection.find();
-			while (cursorDoc.hasNext()) {
-				System.out.println(cursorDoc.next());
-			}
+//			DBCursor cursorDoc = collection.find();
+//			while (cursorDoc.hasNext()) {
+//				System.out.println(cursorDoc.next());
+//			}
 
-			System.out.println("Done");
+			System.out.println("Saved to MongoDB");
 
 		} catch (MongoException e) {
 			e.printStackTrace();

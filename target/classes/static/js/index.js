@@ -3,122 +3,333 @@ Survey
     .applyTheme("default");
 
 var json = {
-    pages: [
-        {
-            title: "Skin/theme choices in your WinForms applications",
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "skinNumber",
-                    title: "How many skin/theme choices do you currently offer within your WinForms applications?",
-                    isRequired: true,
-                    choices: ["many|More than one"],
-                    hasOther: true,
-                    otherText: "One (please specify its name)",
-                    otherErrorText: "Please enter a name of the skin/theme you use in your applications."
-                }
-            ]
-        }, {
-            title: "Do you ship all DevExpress skins with your applications?",
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "skinShips",
-                    title: "If you include more than one skin/theme within your application, please specify whether you ship all DevExpress WinForms skins/themes or whether you ship a select number.",
-                    isRequired: true,
-                    choices: [
-                        "all|I ship all skins", "selected|I ship only a select number"
-                    ],
-                    visibleIf: "{skinNumber} = 'many'"
-                }
-            ]
-        }, {
-            title: "Skin/Theme Value for End-Users",
-            questions: [
-                {
-                    type: "matrix",
-                    name: "skinValue",
-                    title: " If you ship all DevExpress skins/themes, please rank the importance and/or business value of the skins below to your end-users.",
-                    visibleIf: "{skinNumber} = 'many' and {skinShips} = 'all'",
-                    columns: [
-                        "high|High value for end-users", "donotknow|I don't know", "low|Low value for end-users"
-                    ],
-                    rows: [
-                        "msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows",
-                        "msOffice previous|Skins Emulating Previous Versions of MS Office and Windows",
-                        "macOS|Skins Emulating Mac OS",
-                        "vs.net|Skins Emulating Visual Studio",
-                        "adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom",
-                        "holiday|Holiday / Seasonal Themes",
-                        "unique|Other Unique Themes",
-                        "devExpress|Other Unique Themes Designed by DevExpress"
-                    ]
-                }
-            ]
-        }, {
-            title: "Skins/Themes You Include in Your Application",
-            questions: [
-                {
-                    type: "checkbox",
-                    name: "skinSelected",
-                    title: "If you ship only a select number of DevExpress skins/themes, please specify the skins/themes you include in your application.",
-                    visibleIf: "{skinNumber} = 'many' and {skinShips} != 'all'",
-                    choices: [
-                        "msOffice latest|Skins Emulating the Latest Versions of MS Office and Windows",
-                        "msOffice previous|Skins Emulating Previous Versions of MS Office and Windows",
-                        "macOS|Skins Emulating Mac OS",
-                        "vs.net|Skins Emulating Visual Studio",
-                        "adobe|Skins Emulating Well-Known Apps Like Adobe Lightroom",
-                        "holiday|Holiday / Seasonal Themes",
-                        "unique|Other Unique Themes",
-                        "devExpress|Other Unique Themes Designed by DevExpress"
-                    ]
-                }
-            ]
-        }, {
-            title: "Personal Favorite",
-            questions: [
-                {
-                    type: "text",
-                    name: "skinFavorite",
-                    title: "Do you have a personal favorite skin/theme?",
-                    visibleIf: "{skinNumber} = 'many'"
-                }
-            ]
-        }, {
-            title: "Color Variety versus Shape & Style Variety",
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "userImportance",
-                    title: "What is more important for your end-users?",
-                    visibleIf: "{skinNumber} = 'many'",
-                    choices: ["color|Color variety", "elements|Elements, shapes and styles"]
-                }
-            ]
-        }, {
-            title: "Do you modify skins?",
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "skinModify",
-                    title: "Do you modify DevExpress WinForms skins/themes used within your application to address specific business requirements?",
-                    choices: ["Yes", "No"]
-                }
-            ]
-        }, {
-            title: "Reasons to Modify Skins",
-            questions: [
-                {
-                    type: "comment",
-                    name: "skinModifyReason",
-                    title: "If you modify DevExpress skins/themes before shipping your application, please briefly explain the reasons for doing so (such as specific branding requirements)."
-                }
-            ]
-        }
-    ],
-    sendResultOnPageNext: true,
-    showProgressBar: "top"
+ locale: "en",
+ title: {
+  default: "Basic Behavioral and communication style analyser",
+  en: "Basic Behavioral and communication style analyzer"
+ },
+ pages: [
+  {
+   name: "Introduction",
+   elements: [
+    {
+     type: "html",
+     name: "Basic Behavioral and communication style analyser",
+     html: "<p>\nThis is an informal survey, designed to determine how you usually act in everyday\nrelated situations. The idea is to get a clear description of how you see yourself.\nOn the next pages, select A or B in each pair of statements, which shows\nthe one that MOST, describes you.\n<br>\nSurvey taken from The Platinum Rule by Tony Alessandra, Ph.D, & Michael J. O’Connor Ph.D. New York, New York, Warner Brooks 1996\n\n</p>"
+    }
+   ],
+   title: "Introduction"
+  },
+  {
+   name: "Page 1",
+   elements: [
+    {
+     type: "radiogroup",
+     name: "question1",
+     title: "question1",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I’m usually open to getting to know people personally and establishing relationships with them."
+      },
+      {
+       value: "2",
+       text: "I’m not usually open to getting to know people personally and establishing relationships with them."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question2",
+     title: "question2",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually react slowly and deliberately."
+      },
+      {
+       value: "2",
+       text: "I usually react quickly and spontaneously."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question3",
+     title: "question3",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I’m usually guarded about other people’s use of my time."
+      },
+      {
+       value: "2",
+       text: "I’m usually open to other people’s use of my time."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question4",
+     title: "question4",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually introduce myself at social gatherings."
+      },
+      {
+       value: "2",
+       text: "I usually wait for others to introduce themselves to me at social gatherings."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question5",
+     title: "question5",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually focus my conversations on the interests of the people involved, even if that means straying from the business or subject at hand."
+      },
+      {
+       value: "2",
+       text: "I usually focus my conversations on the tasks, issues, business, or subject at hand."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question6",
+     title: "question6",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I’m usually not assertive, and I can be patient with a slow pace."
+      },
+      {
+       value: "2",
+       text: "I’m usually assertive, and at times I can be impatient with a slow pace."
+      }
+     ]
+    }
+   ],
+   title: "Page 1"
+  },
+  {
+   name: "Page 2",
+   elements: [
+    {
+     type: "radiogroup",
+     name: "question7",
+     title: "question7",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually make decisions based on facts or evidence."
+      },
+      {
+       value: "2",
+       text: "I usually make decisions based on feelings , experiences or relationships."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question8",
+     title: "question8",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually contribute frequently to group conversations."
+      },
+      {
+       value: "2",
+       text: "I usually contribute infrequently to group conversations."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question9",
+     title: "question9",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually prefer to work with and through others, providing support when possible."
+      },
+      {
+       value: "2",
+       text: "I usually prefer to work independently or dictate the conditions in terms of how others are involved."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question10",
+     title: "question10",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually ask questions or speak tentatively and indirectly."
+      },
+      {
+       value: "2",
+       text: "I usually make empathic statements or directly expressed opinions."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question11",
+     title: "question11",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually focus primarily on ideas, concepts, or results."
+      },
+      {
+       value: "2",
+       text: "I usually focus primarily on persons, interactions, and feelings."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question12",
+     title: "question12",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually use gestures, facial expression, and voice intonations to emphasize points."
+      },
+      {
+       value: "2",
+       text: "I usually do not use gestures, facial expressions, and voice intonations to emphasize points"
+      }
+     ]
+    }
+   ],
+   title: "Page 2"
+  },
+  {
+   name: "page 3",
+   elements: [
+    {
+     type: "radiogroup",
+     name: "question13",
+     title: "question13",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually accept others’ points of view (ideas, feelings, and concerns)."
+      },
+      {
+       value: "2",
+       text: "I usually don’t accept others’ points of view (ideas, feelings, and concerns)"
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question14",
+     title: "question14",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually respond to risk and change in a cautious or predictable manner."
+      },
+      {
+       value: "2",
+       text: "I usually respond to risk and change in dynamic or unpredictable manner."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question15",
+     title: "question15",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually prefer to keep personal feelings and thoughts private, sharing only when I wish to do to."
+      },
+      {
+       value: "2",
+       text: "I usually find it natural and easy to share and discuss my feelings with others."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question16",
+     title: "question16",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually seek out new or different experiences and situations."
+      },
+      {
+       value: "2",
+       text: "I usually choose known or similar situations and relationships."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question17",
+     title: "question17",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I’m usually responsive to others’ agendas, interests, and concerns."
+      },
+      {
+       value: "2",
+       text: "I’m usually directed toward my own agendas, interests and concerns."
+      }
+     ]
+    },
+    {
+     type: "radiogroup",
+     name: "question18",
+     title: "question18",
+     isRequired: true,
+     choices: [
+      {
+       value: "1",
+       text: "I usually respond to conflict slowly and indirectly."
+      },
+      {
+       value: "2",
+       text: "I usually respond to conflict quickly and directly."
+      }
+     ]
+    }
+   ],
+   title: "page 3"
+  }
+ ],
+ sendResultOnPageNext: true,
+ showProgressBar: "top",
+ firstPageIsStarted: true
 };
 
 window.survey = new Survey.Model(json);
@@ -126,13 +337,13 @@ window.survey = new Survey.Model(json);
 survey
     .onComplete
     .add(function (result) {
-        
+
         $.ajax({
             type: "POST",
             contentType : 'application/json; charset=utf-8',
             dataType : 'json',
 		            url : "/json/survey.htm",
-            data: JSON.stringify(result.data), // Note it is important
+            data: JSON.stringify(result.data), // it is important
             success :function() {
              // do what ever you want with data
             	document

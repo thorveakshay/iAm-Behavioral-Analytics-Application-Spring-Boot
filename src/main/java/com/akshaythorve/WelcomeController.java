@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.akshaythorve.analyze.HomeSurveyAnalyzer;
 import com.akshaythorve.dao.StoreToMongoDB;
 
 @Controller
@@ -28,7 +29,7 @@ public class WelcomeController {
 
 		return "index";
 	}
-	
+	HomeSurveyAnalyzer analyserObj = new HomeSurveyAnalyzer();
 	
 
 	// test 5xx errors
@@ -49,12 +50,14 @@ public class WelcomeController {
 
 	public @ResponseBody String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request) {
 
-		System.out.println(data);
+		
+		analyserObj.getPersonalCharacter(data);
 
 		// String jsonData= JSON.stringify(data);
 		StoreToMongoDB obj = new StoreToMongoDB();
 		obj.saveToMongoDB(data,"todays_mood");
 
+		
 		return "welcome to survey";
 
 		// your logic next
