@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(TwitterController.TWITTER_BASE_URI)
 public class TwitterController {
 
-	public static final String TWITTER_BASE_URI="tweets";
-	
+	public static final String TWITTER_BASE_URI = "tweets";
+
 	@Autowired
 	private Twitter twitter;
-	
-	@RequestMapping(value="{hashTag}", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Tweet> getTweets(@PathVariable final String hashTag){
+
+	@RequestMapping(value = "{hashTag}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Tweet> getTweets(@PathVariable final String hashTag) {
 		return twitter.searchOperations().search(hashTag, 25).getTweets();
-		
+
 	}
 
 }

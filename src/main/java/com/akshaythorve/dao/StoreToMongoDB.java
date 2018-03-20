@@ -15,7 +15,7 @@ import com.mongodb.util.JSON;
 
 public class StoreToMongoDB {
 
-	public void saveToMongoDB(String data, String collectionName) {
+	public String saveToMongoDB(String data, String collectionName) {
 		try {
 
 			Mongo mongo = new Mongo("localhost", 27017);
@@ -27,15 +27,17 @@ public class StoreToMongoDB {
 
 			collection.insert(dbObject);
 
-//			DBCursor cursorDoc = collection.find();
-//			while (cursorDoc.hasNext()) {
-//				System.out.println(cursorDoc.next());
-//			}
+			// DBCursor cursorDoc = collection.find();
+			// while (cursorDoc.hasNext()) {
+			// System.out.println(cursorDoc.next());
+			// }
 
 			System.out.println("Saved to MongoDB");
+			return "Saved to MongoDB";
 
 		} catch (MongoException e) {
 			e.printStackTrace();
+			return "Issue saving to MongoDB";
 		}
 
 	}

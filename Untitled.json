@@ -1,0 +1,45 @@
+{
+  "authorities": [{
+    "authority": "ROLE_USER"
+  }],
+  data.userAuthentication.details.email
+  "details": {
+    "remoteAddress": "0:0:0:0:0:0:0:1",
+    "sessionId": "E45430971F7ACE1FF42E93A73C0564D3",
+    "tokenValue": "EAAcPR7rOngUBALKZCJ8K1rxJ48tUbrTHwZA9WZB8WvdLLx2rLWwjGtrzB47aZAL3IhuvVqnUvdWiSQTaepyCmJZAEwKIpBfMrcwDIvgo4xREhKx4m3gJ2eJDJpJqqV0uszy3pzGwZBx9EF51R1AZCqZAjRTaxQncPS0fIiHuZASZAlxQZDZD",
+    "tokenType": "bearer",
+    "decodedDetails": null
+  },
+  "authenticated": true,
+  "userAuthentication": {
+    "authorities": [{
+      "authority": "ROLE_USER"
+    }],
+    "details": {
+      "name": "Akshay Thorve",
+      "id": "1886720144695685"
+    },
+    "authenticated": true,
+    "principal": "1886720144695685",
+    "credentials": "N/A",
+    "name": "1886720144695685"
+  },
+  "clientOnly": false,
+  "principal": "1886720144695685",
+  "credentials": "",
+  "oauth2Request": {
+    "clientId": "1987125588172293",
+    "scope": [],
+    "requestParameters": {},
+    "resourceIds": [],
+    "authorities": [],
+    "approved": true,
+    "refresh": false,
+    "redirectUri": null,
+    "responseTypes": [],
+    "extensions": {},
+    "grantType": null,
+    "refreshTokenRequest": null
+  },
+  "name": "1886720144695685"
+}

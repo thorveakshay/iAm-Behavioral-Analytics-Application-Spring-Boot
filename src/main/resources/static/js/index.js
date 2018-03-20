@@ -342,10 +342,11 @@ survey
             type: "POST",
             contentType : 'application/json; charset=utf-8',
             dataType : 'json',
-		            url : "/json/survey.htm",
+		            url : "result",
             data: JSON.stringify(result.data), // it is important
             success :function() {
              // do what ever you want with data
+
             	document
                 .querySelector('#surveyResult')
                 .innerHTML = "result: " + JSON.stringify(result.data);

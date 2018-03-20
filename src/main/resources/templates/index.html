@@ -33,7 +33,22 @@
       <li><a href="#screenshot">Screenshots</a></li>
       <li><a href="#testimonial">Testimonial</a></li>
       <li><a href="#clients">Contact</a></li>
-      <li><a href="#clients">Login</a></li>
+      <!-- <li><a href="/login">Login</a></li> -->
+
+      <li>
+        <div id="wrapper">
+          <div class="unauthenticated">
+            <a class="btn" href="/login">Login</a>
+          </div>
+          <div class="authenticated" style="display: none">
+            Logged in as: <span id="user"></span>
+            <div>
+              <button onClick="logout()" class="btn">Logout</button>
+            </div>
+          </div>
+        </div>
+      </li>
+
     </ul>
     <button class="close-button" id="close-button">Close Menu</button>
   </div>
@@ -690,6 +705,26 @@
       });
     </script>
 
+    <script>
+      if (window.location.hash == '#_=_') {
+        history.replaceState ?
+          history.replaceState(null, null, window.location.href.split('#')[0]) :
+          window.location.hash = '';
+      }
+      $.get("/user", function(data) {
+        $("#user").html(data.userAuthentication.details.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+      });
+      var logout = function() {
+        $.post("/logout", function() {
+          $("#user").html('');
+          $(".unauthenticated").show();
+          $(".authenticated").hide();
+        });
+        return true;
+      }
+    </script>
 </body>
 
 </html>
