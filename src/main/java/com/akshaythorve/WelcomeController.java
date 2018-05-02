@@ -1,103 +1,99 @@
 package com.akshaythorve;
 
-import java.security.Principal;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.akshaythorve.analyze.HomeSurveyAnalyzer;
+import com.akshaythorve.dao.StoreToMongoDB;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.akshaythorve.analyze.HomeSurveyAnalyzer;
-import com.akshaythorve.dao.StoreToMongoDB;
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.Map;
 
 @Configuration
 @EnableAutoConfiguration
 @Controller
 public class WelcomeController {
 
-	// inject via application.properties
-	@Value("${app.welcome.message}")
-	private String MESSAGE = "";
+    HomeSurveyAnalyzer analyserObj = new HomeSurveyAnalyzer();
+    // inject via application.properties
+    @Value("${app.welcome.message}")
+    private String MESSAGE = "";
+    @Value("${app.welcome.title}")
+    private String TITLE = "";
 
-	@Value("${app.welcome.title}")
-	private String TITLE = "";
+    @RequestMapping("/")
+    public String welcomeSurvey(Principal principal) {
 
-	@RequestMapping("/")
-	public String welcomeSurvey(Principal principal) {
+        if (principal != null) {
+            System.out.println("===========================================");
+            System.out.println("User name is: " + principal.getName());
+            System.out.println("Facebook principal userAuthentication object: " + principal);
+            // return "Hey there! Your email address is: " + principal.getName();
+        }
 
-		if (principal != null) {
-			System.out.println("===========================================");
-			System.out.println("User name is: " + principal.getName());
-			System.out.println("Facebook principal userAuthentication object: " + principal);
-			// return "Hey there! Your email address is: " + principal.getName();
-		}
+        return "index";
+    }
 
-		return "index";
-	}
+    // test 5xx errors
+    @RequestMapping("/5xx")
+    public String ServiceUnavailable() {
+        throw new RuntimeException("ABC");
+    }
 
-	HomeSurveyAnalyzer analyserObj = new HomeSurveyAnalyzer();
+    // landing page
+    @RequestMapping("/welcome")
+    public String home(Map<String, Object> model) {
+        model.put("title", TITLE);
+        model.put("message", MESSAGE);
+        return "welcome";
+    }
 
-	// test 5xx errors
-	@RequestMapping("/5xx")
-	public String ServiceUnavailable() {
-		throw new RuntimeException("ABC");
-	}
+    @RequestMapping(value = "/result", method = RequestMethod.POST)
+    public @ResponseBody
+    String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request,
+                                 Map<String, Object> model) {
 
-	// landing page
-	@RequestMapping("/welcome")
-	public String home(Map<String, Object> model) {
-		model.put("title", TITLE);
-		model.put("message", MESSAGE);
-		return "welcome";
-	}
+        String iAm = analyserObj.getPersonalCharacter(data);
+        System.out.println("getPersonalCharacter: " + iAm);
 
-	@RequestMapping(value = "/result", method = RequestMethod.POST)
-	public @ResponseBody String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request,
-			Map<String, Object> model) {
+        // String jsonData= JSON.stringify(data);
+        StoreToMongoDB obj = new StoreToMongoDB();
+        String DbStatus = obj.saveToMongoDB(data, "todays_mood");
+        System.out.println("DB Status: " + DbStatus);
 
-		String iAm = analyserObj.getPersonalCharacter(data);
-		System.out.println("getPersonalCharacter: " + iAm);
+        model.put("time", "time time time");
+        model.put("message", "Hello World");
+        model.put("title", "Hello App");
 
-		// String jsonData= JSON.stringify(data);
-		StoreToMongoDB obj = new StoreToMongoDB();
-		String DbStatus = obj.saveToMongoDB(data, "todays_mood");
-		System.out.println("DB Status: " + DbStatus);
+        return "result";
 
-		model.put("time", "time time time");
-		model.put("message", "Hello World");
-		model.put("title", "Hello App");
+        // your logic next
+    }
 
-		return "result";
+    @RequestMapping("/result")
+    public String getResult(Map<String, Object> model) {
 
-		// your logic next
-	}
+        // String iAm = analyserObj.getPersonalCharacter(data);
+        // System.out.println("getPersonalCharacter: "+iAm);
+        //
+        // // String jsonData= JSON.stringify(data);
+        // StoreToMongoDB obj = new StoreToMongoDB();
+        // String DbStatus=obj.saveToMongoDB(data, "todays_mood");
+        // System.out.println("DB Status: "+DbStatus);
 
-	@RequestMapping("/result")
-	public String getResult(Map<String, Object> model) {
+        model.put("time", "time time time");
+        model.put("message", "Hello World");
+        model.put("title", "Hello App");
 
-		// String iAm = analyserObj.getPersonalCharacter(data);
-		// System.out.println("getPersonalCharacter: "+iAm);
-		//
-		// // String jsonData= JSON.stringify(data);
-		// StoreToMongoDB obj = new StoreToMongoDB();
-		// String DbStatus=obj.saveToMongoDB(data, "todays_mood");
-		// System.out.println("DB Status: "+DbStatus);
+        return "result";
 
-		model.put("time", "time time time");
-		model.put("message", "Hello World");
-		model.put("title", "Hello App");
-
-		return "result";
-
-		// your logic next
-	}
+        // your logic next
+    }
 
 }

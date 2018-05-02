@@ -1,7 +1,9 @@
 {
-  "authorities": [{
-    "authority": "ROLE_USER"
-  }],
+  "authorities": [
+    {
+      "authority": "ROLE_USER"
+    }
+  ],
   data.userAuthentication.details.email
   "details": {
     "remoteAddress": "0:0:0:0:0:0:0:1",
@@ -12,9 +14,11 @@
   },
   "authenticated": true,
   "userAuthentication": {
-    "authorities": [{
-      "authority": "ROLE_USER"
-    }],
+    "authorities": [
+      {
+        "authority": "ROLE_USER"
+      }
+    ],
     "details": {
       "name": "Akshay Thorve",
       "id": "1886720144695685"

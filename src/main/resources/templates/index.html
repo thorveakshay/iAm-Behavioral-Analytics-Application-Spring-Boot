@@ -2,249 +2,253 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Spring Boot - MongoDB - Mustache - Web Application">
-  <meta name="keywords" content="Spring Boot, MongoDB, Mustache">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="author" content="Akshay Thorve">
-  <title>Real Me | Your Behavioral Analytics</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Spring Boot - MongoDB - Mustache - Web Application">
+    <meta name="keywords" content="Spring Boot, MongoDB, Mustache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Akshay Thorve">
+    <title>Real Me | Your Behavioral Analytics</title>
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css" media="screen">
-  <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
-  <link href="css/material.min.css" rel="stylesheet">
-  <link href="css/ripples.min.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link href="css/responsive.css" rel="stylesheet">
-  <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css" media="screen">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="navbar navbar-invers menu-wrap">
+<div class="navbar navbar-invers menu-wrap">
     <div class="navbar-header text-center">
-      <a class="navbar-brand logo-right" href="javascript:void(0)"><i class="mdi-image-timelapse"></i>iAm</a>
+        <a class="navbar-brand logo-right" href="javascript:void(0)"><i class="mdi-image-timelapse"></i>iAm</a>
     </div>
     <ul class="nav navbar-nav main-navigation">
-      <li class="active"><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#why">why</a></li>
-      <li><a href="#screenshot">Screenshots</a></li>
-      <li><a href="#testimonial">Testimonial</a></li>
-      <li><a href="#clients">Contact</a></li>
-      <!-- <li><a href="/login">Login</a></li> -->
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#why">why</a></li>
+        <li><a href="#screenshot">Screenshots</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#clients">Contact</a></li>
+        <!-- <li><a href="/login">Login</a></li> -->
 
-      <li>
-        <div id="wrapper">
-          <div class="unauthenticated">
-            <a class="btn" href="/login">Login</a>
-          </div>
-          <div class="authenticated" style="display: none">
-            Logged in as: <span id="user"></span>
-            <div>
-              <button onClick="logout()" class="btn">Logout</button>
+        <li>
+            <div id="wrapper">
+                <div class="unauthenticated">
+                    <a class="btn" href="/login">Login</a>
+                </div>
+                <div class="authenticated" style="display: none">
+                    Logged in as: <span id="user"></span>
+                    <div>
+                        <button onClick="logout()" class="btn">Logout</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </li>
+        </li>
 
     </ul>
     <button class="close-button" id="close-button">Close Menu</button>
-  </div>
+</div>
 
-  <div class="content-wrap">
+<div class="content-wrap">
     <header class="hero-area" id="home">
 
-      <div class="container">
-        <div class="col-md-12">
+        <div class="container">
+            <div class="col-md-12">
 
-          <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="200">
-            <div class="container">
-              <div class="navbar-header">
-                <a class="logo-left " href="#home"><i class="mdi-image-timelapse"></i>iAm</a>
-              </div>
-              <div class="navbar-right">
-                <button class="menu-icon" id="open-button">
-                    <i class="mdi-navigation-menu"></i>
-                  </button>
-              </div>
+                <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix"
+                     data-offset-top="200">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a class="logo-left " href="#home"><i class="mdi-image-timelapse"></i>iAm</a>
+                        </div>
+                        <div class="navbar-right">
+                            <button class="menu-icon" id="open-button">
+                                <i class="mdi-navigation-menu"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="contents text-right">
-          <h1 class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">Real Me | Your Behavioral Analytics</h1>
-          <p class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">Know your self and know how to communicate with other personalities</p>
-          <a href="/welcome" class="btn btn-lg btn-primary wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Initial Survey</a>
-          <a href="#features" class="btn btn-lg btn-border wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">Learn More</a>
-        </div>
+            <div class="contents text-right">
+                <h1 class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">Real Me | Your Behavioral
+                    Analytics</h1>
+                <p class="wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="400ms">Know your self and know how
+                    to communicate with other personalities</p>
+                <a href="/welcome" class="btn btn-lg btn-primary wow fadeInUp" data-wow-duration="1000ms"
+                   data-wow-delay="400ms">Initial Survey</a>
+                <a href="#features" class="btn btn-lg btn-border wow fadeInUp" data-wow-duration="1000ms"
+                   data-wow-delay="500ms">Learn More</a>
+            </div>
     </header>
 
     <section id="features" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">App Details</h1>
-          <p>want to build something which will help people analyze, review themselves. Find out their personality type using some unique questions and possibly algorithms. Suggest connecting similar minded persons. Also generate some personalized tips to
-            improve, refer some commercial books/products to them. Also, try to show some relevant news and articles to them using google feeds etc. Basically, make them love and focus on themselves.</p>
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="100ms">App
+                    Details</h1>
+                <p>I want to build something which will help people analyze, review themselves. Find out their
+                    personality type using some unique questions and possibly algorithms. Suggest connecting similar
+                    minded persons. Also generate some personalized tips
+                    to improve, refer some commercial books/products to them. Also, try to show some relevant news and
+                    articles to them using google feeds etc. Basically, make them love and focus on themselves.</p>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="features">
+                        <div class="icon">
+                            <i class="mdi-action-settings"></i>
+                        </div>
+                        <div class="features-text">
+                            <h4>Built-with </h4>
+                            <p>
+                                Java 8, Maven, MongoDB, Spring 5, Spring Boot, Mustache Templating, HTML, CSS and JS
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="450ms">
+                    <div class="features">
+                        <div class="icon">
+                            <i class="mdi-action-done-all"></i>
+                        </div>
+                        <div class="features-text">
+                            <h4>Secured with Facebook OAuth2</h4>
+                            <p>
+                                Use have to login using their facebook account. No spam and personalised application.
+                                Optional organizational login using Okta also integrated.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="550ms">
+                    <div class="features">
+                        <div class="icon">
+                            <i class="mdi-image-blur-linear"></i>
+                        </div>
+                        <div class="features-text">
+                            <h4>Continuous Integration and Delivery (CI/CD) Pipeline</h4>
+                            <p>
+                                GitHub and Heroku. Next intigration with AWS,S3 and Amazon CloudWatch‎.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="650ms">
+                    <div class="features">
+                        <div class="icon">
+                            <i class="mdi-communication-business"></i>
+                        </div>
+                        <div class="features-text">
+                            <h4>Social integrations/h4>
+                                <p>
+                                    Twitter API, Okta API and Facebook API
+                                </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="750ms">
+                    <div class="features">
+                        <div class="icon">
+                            <i class="mdi-action-favorite"></i>
+                        </div>
+                        <div class="features-text">
+                            <h4>Exiting Questions to find Real YOU! </h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="850ms">
+                  <div class="features">
+                    <div class="icon">
+                      <i class="mdi-hardware-phonelink"></i>
+                    </div>
+                    <div class="features-text">
+                      <h4>Fully Responsive Layout</h4>
+                      <p>
+
+                      </p>
+                    </div>
+                  </div>
+                </div> -->
+            </div>
         </div>
-        <div class="row">
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-settings"></i>
-              </div>
-              <div class="features-text">
-                <h4>Built-with </h4>
-                <p>
-                  Java 8, Maven, MongoDB, Spring 5, Spring Boot, Mustache Templating, HTML, CSS and JS
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="450ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-done-all"></i>
-              </div>
-              <div class="features-text">
-                <h4>Secured with Facebook OAuth2</h4>
-                <p>
-                  Use have to login using their facebook account. No spam and personalised application. Optional organizational login using Okta also integrated.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="550ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-image-blur-linear"></i>
-              </div>
-              <div class="features-text">
-                <h4>Continuous Integration and Delivery (CI/CD) Pipeline</h4>
-                <p>
-                  GitHub and Heroku. Next intigration with AWS,S3 and Amazon CloudWatch‎.
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="650ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-communication-business"></i>
-              </div>
-              <div class="features-text">
-                <h4>Social integrations/h4>
-                <p>
-                  Twitter API, Okta API and Facebook API
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="750ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-action-favorite"></i>
-              </div>
-              <div class="features-text">
-                <h4>Exiting Questions to find Real YOU! </h4>
-                <p>
-
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="850ms">
-            <div class="features">
-              <div class="icon">
-                <i class="mdi-hardware-phonelink"></i>
-              </div>
-              <div class="features-text">
-                <h4>Fully Responsive Layout</h4>
-                <p>
-                  
-                </p>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
     </section>
-
-
-
-
-
 
 
     <section id="copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <p class="copyright-text">
-              © iAM 2018 All right reserved. Developed by
-              <a target="_blank" href="https://akshaythorve.com/">
-                Akshay Thorve
-              </a>
-            </p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright-text">
+                        © iAM 2018 All right reserved. Developed by
+                        <a target="_blank" href="https://akshaythorve.com/">
+                            Akshay Thorve
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    </div>
+</div>
 
 
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ripples.min.js"></script>
-    <script src="js/material.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/jquery.mmenu.min.all.js"></script>
-    <script src="js/count-to.js"></script>
-    <script src="js/jquery.inview.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/jquery.nav.js"></script>
-    <script src="js/smooth-on-scroll.js"></script>
-    <script src="js/smooth-scroll.js"></script>
-    <script src="js/main.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ripples.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/jquery.mmenu.min.all.js"></script>
+<script src="js/count-to.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/smooth-on-scroll.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/main.js"></script>
 
 
-
-    <script>
-      $(document).ready(function() {
+<script>
+    $(document).ready(function () {
         // This command is used to initialize some elements and make them work properly
         $.material.init();
-      });
-    </script>
+    });
+</script>
 
-    <script>
-      if (window.location.hash == '#_=_') {
+<script>
+    if (window.location.hash == '#_=_') {
         history.replaceState ?
-          history.replaceState(null, null, window.location.href.split('#')[0]) :
-          window.location.hash = '';
-      }
-      $.get("/user", function(data) {
+            history.replaceState(null, null, window.location.href.split('#')[0]) :
+            window.location.hash = '';
+    }
+    $.get("/user", function (data) {
         $("#user").html(data.userAuthentication.details.name);
         $(".unauthenticated").hide()
         $(".authenticated").show()
-      });
-      var logout = function() {
-        $.post("/logout", function() {
-          $("#user").html('');
-          $(".unauthenticated").show();
-          $(".authenticated").hide();
+    });
+    var logout = function () {
+        $.post("/logout", function () {
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
         });
         return true;
-      }
-    </script>
+    }
+</script>
 </body>
 
 </html>
