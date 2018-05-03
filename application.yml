@@ -48,7 +48,7 @@
 #   oauth2:
 #     client:
 #       # From OIDC app
-#       clientId: 0oaec146kqLJ9MPTv0h7
+#       clientId: 0omongoaec146kqLJ9MPTv0h7
 #       clientSecret: 5KUiAQLAgLXjKtxnAWh8c7c8r74BbEgd9N4iAfIM
 #       # From Authorization Server's metadata
 #       accessTokenUri: https://dev-460096.oktapreview.com/oauth2/default/v1/token

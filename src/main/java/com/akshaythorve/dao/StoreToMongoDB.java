@@ -17,7 +17,7 @@ public class StoreToMongoDB {
     public String saveToMongoDB(String data, String collectionName, String userName, String iAm) {
         try {
 
-            Mongo mongo = new Mongo("localhost", 27017);
+            Mongo mongo = new Mongo("ds113640.mlab.com", 13640);
             DB db = mongo.getDB("surveyDB");
             DBCollection collection = db.getCollection(collectionName);
 
@@ -46,8 +46,8 @@ public class StoreToMongoDB {
     @SuppressWarnings("deprecation")
     public String getProfile(String userName, String collectionName) {
         try {
-
-            Mongo mongo = new Mongo("localhost", 27017);
+           // mongodb://@ds113640.mlab.com:13640/surveydb
+            Mongo mongo = new Mongo("ds113640.mlab.com", 13640);
             DB db = mongo.getDB("surveyDB");
             DBCollection collection = db.getCollection(collectionName);
 
