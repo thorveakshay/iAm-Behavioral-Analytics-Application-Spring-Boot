@@ -17,16 +17,76 @@
 
 
 
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css" media="screen">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+
+
+
 
 </head>
 <body>
 
 
+<div class="navbar navbar-invers menu-wrap">
+    <div class="navbar-header text-center">
+        <a class="navbar-brand logo-right" href="javascript:void(0)"><i class="mdi-image-timelapse"></i>iAm</a>
+    </div>
+    <ul class="nav navbar-nav main-navigation">
+        <li ><a href="/">Home</a></li>
+        <li class="active"><a href="/profile">Profile</a></li>
+        <li><a href="#why">why</a></li>
+        <li><a href="#screenshot">Screenshots</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#clients">Contact</a></li>
+        <!-- <li><a href="/login">Login</a></li> -->
+
+        <li>
+            <div id="wrapper">
+                <div class="unauthenticated">
+                    <a class="btn" href="/login">Login</a>
+                </div>
+                <div class="authenticated" style="display: none">
+
+                    <strong>Hello:</strong> <br> <span id="user"></span>
+                    <div>
+                        <button onClick="logout()" class="btn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <button class="close-button" id="close-button">Close Menu</button>
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+
+        <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix"
+             data-offset-top="200">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="logo-left " href="#home"><i class="mdi-image-timelapse"></i>iAm</a>
+                </div>
+                <div class="navbar-right">
+                    <button class="menu-icon" id="open-button">
+                        <i class="mdi-navigation-menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
 
 
 
-
-<div class="w-100 p-3">
+<div class="w-100 p-3" style="margin-top: 68px;!important;">
     <div class="card hovercard">
         <div class="card-background">
             <img class="card-bkimg" alt="" src="https://source.unsplash.com/160x160/?sport">
@@ -35,46 +95,413 @@
         <div class="useravatar">
             <img alt="" src="https://source.unsplash.com/160x160/?sport">
         </div>
-        <div class="card-info"> <span class="card-title">Welcome {{userName}}</span>
+        <div class="card-info"><span class="card-title">Welcome {{userName}}</span>
 
         </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span
+                    class="glyphicon glyphicon-star" aria-hidden="true"></span>
                 <div class="hidden-xs">My Behaviour</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span
+                    class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                 <div class="hidden-xs">Favorite Feeds</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span
+                    class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 <div class="hidden-xs">Similer Personalities</div>
             </button>
         </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="all" class="btn btn-default" href="#tab4" data-toggle="tab"><span
+                    class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <div class="hidden-xs">All Personalities</div>
+            </button>
+        </div>
+
     </div>
 
     <div class="well">
         <div class="tab-content">
-            <div class="tab-pane fade in active" id="tab1">
-                <h3><div>You are {{behaviour}}</div></h3>
+            <div class="tab-pane fade in active" style="text-align: center;margin:0 auto;" id="tab1">
+
+
+                <div id="wrapper">
+                    <div class="Tortoise">
+                        <h3>
+                            <div>You are {{behaviour}}, and our magical behavior analytics says you are a <strong>Tortoise</strong>
+                            </div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?turtle"><br>
+
+
+                        <p><br>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+
+                             Harmonizer<br>
+                             Values acceptance and stability in circumstances<br>
+                             Slow with big decisions; dislikes change<br>
+                             Builds networks of friends to help do work<br>
+                             Good listener; timid about voicing contrary opinions; concerned for others’ feelings<br>
+                             Easy-going; likes slow, steady pace<br>
+                             Friendly & sensitive; no person in unlovable<br>
+                             Relationship Oriented<br>
+                        </p>
+                        <h4><strong>Simply put, the tortoise wants everyone to get along. They are naturally empathetic,
+                            supportive, and care for
+                            others. In a group, they tend to be the “peacekeepers” or mediators. While they might not be
+                            directly involved
+                            in implementing a project, they are usually encouraging others to keep morale high.
+                            Tortoises have a hard time
+                            saying “no” and can find themselves stressed with the extra work they did not really want.
+                            While they see
+                            themselves as self-sacrificing, others may perceive this as laziness when they do not do the
+                            same style or
+                            amount of work as other teammates. Also, because of the sociality of tortoises, they tend to
+                            be talkative which
+                            can cause their efficiency to suffer.</strong></h4>
+                    </div>
+                    <div class="Owl">
+
+                        <h3>
+                            <div>You are {{behaviour}}, and our magical behavior analytics says you are an
+                                <strong>Owl</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?owl"><br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                             Assessor <br>
+                             Values accuracy in details & being right<br>
+                             Plans thoroughly before deciding to act<br>
+                             Prefers to work alone<br>
+                             Introverted; quick to think and slow to speak; closed about personal matters<br>
+                             Highly organized; even plans spontaneity!<br>
+                             Cautious, logical, thrifty approach<br>
+                             Thoughtful; no problem is too big to ponder<br>
+                             Idea Oriented<br>
+                        </p>
+                        <h4><strong>Owls like to overlook their projects from a higher position that enables them to absorb the
+                            “larger picture.” They
+                            tend to be logical and analytical which allows them to be thorough in their work. They tend
+                            to do work alone in
+                            part because of their tendency to be perfectionists and their great attention to detail.
+                            They tend to be a little
+                            strict or inflexible with others because they need a project done a certain way.<br>
+                        </strong></h4>
+                    </div>
+                    <div class="Rabbit">
+
+                        <h3>
+                            <div>You are {{behaviour}}, and our magical behavior analytics says you are a
+                                <strong>Rabbit</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?rabbit"> <br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                             Entertainer<br>
+                             Values enjoyment and helping others with the same<br>
+                             Full of ideas and impulsive in trying them<br>
+                             Wants to work to be fun for everyone<br>
+                             Talkative and open about self; asks others’ opinions; loves to brainstorm<br>
+                             Flexible; easily bored with routine<br>
+                             Intuitive, creative, spontaneous, flamboyant approach<br>
+                             Optimist; nothing is beyond hope<br>
+                             Celebration Oriented<br>
+                        </p>
+
+                        <h4><strong>Rabbits are the energetic go-getters. They often initiate the actions that get the process
+                            going and get the rest of
+                            the team on the process. They are usually enthusiastic and flexible in both their actions
+                            and interests and
+                            therefore function with little structure. Because of this bouncing back and forth, they may
+                            not take as much time
+                            as necessary on a project or fail to satisfactorily complete their work.<br></strong></h4>
+                    </div>
+                    <div class="Bear">
+
+                        <h3>
+                            <div>You are {{behaviour}}, and our magical behavior analytics says you are a
+                                <strong>Bear</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?bear"> <br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                             Commander<br>
+                             Values getting the job done<br>
+                             Decisive risk taker<br>
+                             Good at delegating work to others<br>
+                             Not shy but private about personal matters; comes on strong in conversation<br>
+                             Likes to be where the action is<br>
+                             Take charge, enterprising, competitive, efficient approach<br>
+                             Fearless; no obstacle is too big to tackle<br>
+                             Results Oriented<br>
+                        </p>
+
+                        <h4><strong>Bears are assertive yet supportive. In a group, they usually fall into the role of the
+                            leader. They are constantly
+                            taking action to keep the group going on task, but they are also quick to lend support to
+                            their teammates. Of the
+                            communication styles, the bears are the most aggressive and because of this they often grow
+                            impatient or angry
+                            when things don’t go their way. Their inflexibility and assertive attitudes can cause some
+                            issues within groups,
+                            but they are usually the driving forces to finish the project on time.<br></strong></h4>
+                    </div>
+                </div>
+
+
             </div>
-            <div class="tab-pane fade in" id="tab2">
-                <h3>This is tab 2</h3>
+            <div class="tab-pane fade in" style="max-width: 75rem;text-align: center;margin:0 auto;" id="tab2">
+                <a class="twitter-timeline" href="https://twitter.com/WIRED?ref_src=twsrc%5Etfw">Tweets by WIRED</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
             </div>
             <div class="tab-pane fade in" id="tab3">
-                <h3>This is tab 3</h3>
+                <span id="hashtag"></span>
+
+
+
+
+            </div>
+
+            <div class="tab-pane fade in" style="text-align: center;margin:0 auto;" id="tab4">
+
+                <h2>All Behavioral Patterns</h2>
+                <h3>Ask your friends their behavioral pattern and learn how to effectively communicate with them! </h3>
+
+
+
+                <div id="wrapper">
+                    <div class="Tortoise1">
+                        <h3>
+                            <div><strong>Tortoise</strong>
+                            </div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?turtle"><br>
+
+
+                        <p><br>
+
+
+                        Harmonizer<br>
+                        Values acceptance and stability in circumstances<br>
+                        Slow with big decisions; dislikes change<br>
+                        Builds networks of friends to help do work<br>
+                        Good listener; timid about voicing contrary opinions; concerned for others’ feelings<br>
+                        Easy-going; likes slow, steady pace<br>
+                        Friendly & sensitive; no person in unlovable<br>
+                        Relationship Oriented<br>
+                        </p>
+                        <h4><strong>Simply put, the tortoise wants everyone to get along. They are naturally empathetic,
+                            supportive, and care for
+                            others. In a group, they tend to be the “peacekeepers” or mediators. While they might not be
+                            directly involved
+                            in implementing a project, they are usually encouraging others to keep morale high.
+                            Tortoises have a hard time
+                            saying “no” and can find themselves stressed with the extra work they did not really want.
+                            While they see
+                            themselves as self-sacrificing, others may perceive this as laziness when they do not do the
+                            same style or
+                            amount of work as other teammates. Also, because of the sociality of tortoises, they tend to
+                            be talkative which
+                            can cause their efficiency to suffer.</strong></h4>
+                    </div>
+                    <div class="Owl1">
+
+                        <h3>
+                            <div>
+                                <strong>Owl</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?owl"><br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                        Assessor <br>
+                        Values accuracy in details & being right<br>
+                        Plans thoroughly before deciding to act<br>
+                        Prefers to work alone<br>
+                        Introverted; quick to think and slow to speak; closed about personal matters<br>
+                        Highly organized; even plans spontaneity!<br>
+                        Cautious, logical, thrifty approach<br>
+                        Thoughtful; no problem is too big to ponder<br>
+                        Idea Oriented<br>
+                        </p>
+                        <h4><strong>Owls like to overlook their projects from a higher position that enables them to absorb the
+                            “larger picture.” They
+                            tend to be logical and analytical which allows them to be thorough in their work. They tend
+                            to do work alone in
+                            part because of their tendency to be perfectionists and their great attention to detail.
+                            They tend to be a little
+                            strict or inflexible with others because they need a project done a certain way.<br>
+                        </strong></h4>
+                    </div>
+                    <div class="Rabbit1">
+
+                        <h3>
+                            <div>
+                                <strong>Rabbit</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?rabbit"> <br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                        Entertainer<br>
+                        Values enjoyment and helping others with the same<br>
+                        Full of ideas and impulsive in trying them<br>
+                        Wants to work to be fun for everyone<br>
+                        Talkative and open about self; asks others’ opinions; loves to brainstorm<br>
+                        Flexible; easily bored with routine<br>
+                        Intuitive, creative, spontaneous, flamboyant approach<br>
+                        Optimist; nothing is beyond hope<br>
+                        Celebration Oriented<br>
+                        </p>
+
+                        <h4><strong>Rabbits are the energetic go-getters. They often initiate the actions that get the process
+                            going and get the rest of
+                            the team on the process. They are usually enthusiastic and flexible in both their actions
+                            and interests and
+                            therefore function with little structure. Because of this bouncing back and forth, they may
+                            not take as much time
+                            as necessary on a project or fail to satisfactorily complete their work.<br></strong></h4>
+                    </div>
+                    <div class="Bear1">
+
+                        <h3>
+                            <div>
+                                <strong>Bear</strong></div>
+                        </h3>
+                        <br>
+                        <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?bear"> <br>
+                        <p>
+                            <br> <h4>So What’s the Verdict????</h4> <br>
+                        Commander<br>
+                        Values getting the job done<br>
+                        Decisive risk taker<br>
+                        Good at delegating work to others<br>
+                        Not shy but private about personal matters; comes on strong in conversation<br>
+                        Likes to be where the action is<br>
+                        Take charge, enterprising, competitive, efficient approach<br>
+                        Fearless; no obstacle is too big to tackle<br>
+                        Results Oriented<br>
+                        </p>
+
+                        <h4><strong>Bears are assertive yet supportive. In a group, they usually fall into the role of the
+                            leader. They are constantly
+                            taking action to keep the group going on task, but they are also quick to lend support to
+                            their teammates. Of the
+                            communication styles, the bears are the most aggressive and because of this they often grow
+                            impatient or angry
+                            when things don’t go their way. Their inflexibility and assertive attitudes can cause some
+                            issues within groups,
+                            but they are usually the driving forces to finish the project on time.<br></strong></h4>
+                    </div>
+                </div>
+
+
+
+
+
             </div>
         </div>
     </div>
-
+    <section id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright-text">
+                        © iAM 2018 All right reserved. Developed by
+                        <strong><a target="_blank" href="https://akshaythorve.com/">
+                            Akshay Thorve
+                        </a></strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script type="text/javascript" src="js/profile.js"></script>
 
+<script>
+
+
+
+
+
+    $(document).ready(function() {
+
+        $("#tab4").hover(function() {
+
+            $(".Tortoise1").show()
+            $(".Owl1").show()
+            $(".Rabbit1").show()
+            $(".Bear1").show()
+
+        });
+
+    });
+
+
+    $.get("/behaviour", function (data) {
+
+        $(".Tortoise").hide()
+        $(".Owl").hide()
+        $(".Rabbit").hide()
+        $(".Bear").hide()
+
+
+        if (data == "SUPPORTER/RELATER") {
+            $(".Tortoise").show()
+        }
+
+        if (data == "ANALYZER/THINKER") {
+            $(".Owl").show()
+        }
+
+        if (data == "PROMOTER/SOCIALIZER") {
+            $(".Rabbit").show()
+        }
+
+
+        if (data == "CONTROLLER/DIRECTOR") {
+            $(".Bear").show()
+        }
+
+
+    });
+
+
+    $.get("/tweets/%23smile", function (data) {
+        $("#hashtag").html(data);
+
+    });
+
+</script>
+
+
+
+
+<script src="js/ripples.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/jquery.mmenu.min.all.js"></script>
+<script src="js/count-to.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/smooth-on-scroll.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

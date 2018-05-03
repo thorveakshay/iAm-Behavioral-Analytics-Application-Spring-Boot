@@ -13,6 +13,7 @@ public class StoreToMongoDB {
 
     }
 
+    @SuppressWarnings("deprecation")
     public String saveToMongoDB(String data, String collectionName, String userName, String iAm) {
         try {
 
@@ -23,8 +24,8 @@ public class StoreToMongoDB {
 
             // convert JSON to DBObject directly
             DBObject dbObject = (DBObject) JSON.parse(data);
-dbObject.put("_id",userName);
-dbObject.put("iAm",iAm);
+            dbObject.put("_id", userName);
+            dbObject.put("iAm", iAm);
             collection.insert(dbObject);
 
             // DBCursor cursorDoc = collection.find();
@@ -42,7 +43,8 @@ dbObject.put("iAm",iAm);
 
     }
 
-    public String getProfile(String userName,String collectionName) {
+    @SuppressWarnings("deprecation")
+    public String getProfile(String userName, String collectionName) {
         try {
 
             Mongo mongo = new Mongo("localhost", 27017);
@@ -50,17 +52,16 @@ dbObject.put("iAm",iAm);
             DBCollection collection = db.getCollection(collectionName);
 
 
+            DBObject userProfile = collection.findOne(userName);
 
-            DBObject userProfile=collection.findOne(userName);
-
-            String behaviour= userProfile.get("iAm").toString();
+            String behaviour = userProfile.get("iAm").toString();
 
             // DBCursor cursorDoc = collection.find();
             // while (cursorDoc.hasNext()) {
             // System.out.println(cursorDoc.next());
             // }
 
-            System.out.println("Retrived behaviour as: "+behaviour);
+            System.out.println("Retrived behaviour as: " + behaviour);
 
             return behaviour;
 
@@ -70,8 +71,6 @@ dbObject.put("iAm",iAm);
         }
 
     }
-
-
 
 
 }

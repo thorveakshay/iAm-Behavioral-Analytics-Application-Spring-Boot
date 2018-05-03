@@ -22,25 +22,25 @@ import java.util.Map;
 public class WelcomeController {
 
     HomeSurveyAnalyzer analyserObj = new HomeSurveyAnalyzer();
+    String userName = "";
     // inject via application.properties
     @Value("${app.welcome.message}")
     private String MESSAGE = "";
     @Value("${app.welcome.title}")
     private String TITLE = "";
-    String userName ="";
 
     @RequestMapping("/")
     public String welcomeSurvey(ModelMap model, Principal principal) {
 
         if (principal != null) {
-            userName=principal.getName();
+            userName = principal.getName();
 
-             //get logged in username
+            //get logged in username
             model.addAttribute("userName", userName);
 
             System.out.println("===========================================");
             System.out.println("User name is: " + principal.getName());
-            System.out.println("Facebook principal userAuthentication object: " + principal);
+            System.out.println("Principal userAuthentication object: " + principal);
             // return "Hey there! Your email address is: " + principal.getName();
         }
 
@@ -62,30 +62,31 @@ public class WelcomeController {
     }
 
     @RequestMapping("/profile")
-    public String viewProfile(Map<String, Object> model,Principal principal) {
+    public String viewProfile(Map<String, Object> model, Principal principal) {
 
 
         StoreToMongoDB obj = new StoreToMongoDB();
-        String behaviour = obj.getProfile(principal.getName(),"todays_mood");
+        String behaviour = obj.getProfile(principal.getName(), "todays_mood");
 
 
         model.put("userName", principal.getName());
         model.put("behaviour", behaviour);
+
+
         return "profile";
     }
-
 
 
     @RequestMapping(value = "/result", method = RequestMethod.POST)
     public @ResponseBody
     String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request,
-                                 Map<String, Object> model,Principal principal) {
+                                 Map<String, Object> model, Principal principal) {
 
         String iAm = analyserObj.getPersonalCharacter(data);
         System.out.println("getPersonalCharacter: " + iAm);
 
         String userName = principal.getName();
-        System.out.println("userName ++ "+ userName);
+        System.out.println("userName ++ " + userName);
         // String jsonData= JSON.stringify(data);
         StoreToMongoDB obj = new StoreToMongoDB();
         String DbStatus = obj.saveToMongoDB(data, "todays_mood", userName, iAm);

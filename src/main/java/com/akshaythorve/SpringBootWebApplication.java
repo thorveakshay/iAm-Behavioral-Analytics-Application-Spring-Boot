@@ -1,5 +1,6 @@
 package com.akshaythorve;
 
+import com.akshaythorve.dao.StoreToMongoDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 @RestController
 @EnableOAuth2Sso
@@ -25,14 +27,6 @@ public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
 
     @Autowired
     OAuth2ClientContext oauth2ClientContext;
-
-
-//    @RequestMapping({ "/user", "/me" })
-//    public Map<String, String> user(Principal principal) {
-//        Map<String, String> map = new LinkedHashMap<>();
-//        map.put("name", principal.getName());
-//        return map;
-//    }
 
 
     public static void main(String[] args) throws Exception {
@@ -71,7 +65,22 @@ public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
     public String user(Principal principal) {
         //System.out.println("User is: "+ principal.getName());
 
-        return  principal.getName();
+        return principal.getName();
+    }
+
+    @RequestMapping("/behaviour")
+    public String viewbehaviour(Map<String, Object> model, Principal principal) {
+
+
+        StoreToMongoDB obj = new StoreToMongoDB();
+        String behaviour = obj.getProfile(principal.getName(), "todays_mood");
+
+
+        model.put("userName", principal.getName());
+        model.put("behaviour", behaviour);
+
+
+        return behaviour.toUpperCase();
     }
 
     @RequestMapping(value = "/akshay", method = RequestMethod.GET)
