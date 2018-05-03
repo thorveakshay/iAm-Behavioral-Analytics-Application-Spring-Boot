@@ -18,7 +18,7 @@ public class StoreToMongoDB {
         try {
 
             Mongo mongo = new Mongo("ds113640.mlab.com", 13640);
-            DB db = mongo.getDB("surveyDB");
+            DB db = mongo.getDB("surveydb");
             DBCollection collection = db.getCollection(collectionName);
 
 
@@ -48,7 +48,7 @@ public class StoreToMongoDB {
         try {
            // mongodb://@ds113640.mlab.com:13640/surveydb
             Mongo mongo = new Mongo("ds113640.mlab.com", 13640);
-            DB db = mongo.getDB("surveyDB");
+            DB db = mongo.getDB("surveydb");
             DBCollection collection = db.getCollection(collectionName);
 
 
