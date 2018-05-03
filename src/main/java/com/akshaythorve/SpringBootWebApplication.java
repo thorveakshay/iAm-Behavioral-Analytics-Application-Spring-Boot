@@ -1,11 +1,15 @@
 package com.akshaythorve;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.client.OAuth2ClientContext;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +17,40 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 import java.util.LinkedHashMap;
 
-@EnableOAuth2Sso
 @RestController
+@EnableOAuth2Sso
+@EnableResourceServer
 @SpringBootApplication
 public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    OAuth2ClientContext oauth2ClientContext;
+
+
+//    @RequestMapping({ "/user", "/me" })
+//    public Map<String, String> user(Principal principal) {
+//        Map<String, String> map = new LinkedHashMap<>();
+//        map.put("name", principal.getName());
+//        return map;
+//    }
+
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
+
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        // @formatter:off
+//        http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+//                .authenticated().and().exceptionHandling()
+//                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/")).and().logout()
+//                .logoutSuccessUrl("/").permitAll().and().csrf()
+//                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+//                .addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
+//        // @formatter:on
+//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -32,10 +62,16 @@ public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
 
     }
 
-    @RequestMapping("/user")
-    public Principal user(Principal principal) {
+    @GetMapping("/aa")
+    public String echoTheUsersEmailAddress(Principal principal) {
+        return "Hey there! Your email address is: " + principal.getName();
+    }
 
-        return principal;
+    @RequestMapping("/user")
+    public String user(Principal principal) {
+        //System.out.println("User is: "+ principal.getName());
+
+        return  principal.getName();
     }
 
     @RequestMapping(value = "/akshay", method = RequestMethod.GET)

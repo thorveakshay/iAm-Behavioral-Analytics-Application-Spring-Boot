@@ -346,8 +346,10 @@ survey
             data: JSON.stringify(result.data), // it is important
             success: function () {
                 // do what ever you want with data
+                alert("Hello! I am an alert box!!");
 
                 document
+
                     .querySelector('#surveyResult')
                     .innerHTML = "result: " + JSON.stringify(result.data);
             }

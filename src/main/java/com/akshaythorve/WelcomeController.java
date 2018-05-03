@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,11 +27,17 @@ public class WelcomeController {
     private String MESSAGE = "";
     @Value("${app.welcome.title}")
     private String TITLE = "";
+    String userName ="";
 
     @RequestMapping("/")
-    public String welcomeSurvey(Principal principal) {
+    public String welcomeSurvey(ModelMap model, Principal principal) {
 
         if (principal != null) {
+            userName=principal.getName();
+
+             //get logged in username
+            model.addAttribute("userName", userName);
+
             System.out.println("===========================================");
             System.out.println("User name is: " + principal.getName());
             System.out.println("Facebook principal userAuthentication object: " + principal);
@@ -40,31 +47,48 @@ public class WelcomeController {
         return "index";
     }
 
-    // test 5xx errors
+
     @RequestMapping("/5xx")
     public String ServiceUnavailable() {
         throw new RuntimeException("ABC");
     }
 
-    // landing page
+
     @RequestMapping("/welcome")
-    public String home(Map<String, Object> model) {
+    public String homeSurvey(Map<String, Object> model) {
         model.put("title", TITLE);
         model.put("message", MESSAGE);
         return "welcome";
     }
 
+    @RequestMapping("/profile")
+    public String viewProfile(Map<String, Object> model,Principal principal) {
+
+
+        StoreToMongoDB obj = new StoreToMongoDB();
+        String behaviour = obj.getProfile(principal.getName(),"todays_mood");
+
+
+        model.put("userName", principal.getName());
+        model.put("behaviour", behaviour);
+        return "profile";
+    }
+
+
+
     @RequestMapping(value = "/result", method = RequestMethod.POST)
     public @ResponseBody
     String getSearchUserProfiles(@RequestBody String data, HttpServletRequest request,
-                                 Map<String, Object> model) {
+                                 Map<String, Object> model,Principal principal) {
 
         String iAm = analyserObj.getPersonalCharacter(data);
         System.out.println("getPersonalCharacter: " + iAm);
 
+        String userName = principal.getName();
+        System.out.println("userName ++ "+ userName);
         // String jsonData= JSON.stringify(data);
         StoreToMongoDB obj = new StoreToMongoDB();
-        String DbStatus = obj.saveToMongoDB(data, "todays_mood");
+        String DbStatus = obj.saveToMongoDB(data, "todays_mood", userName, iAm);
         System.out.println("DB Status: " + DbStatus);
 
         model.put("time", "time time time");

@@ -28,7 +28,7 @@
     </div>
     <ul class="nav navbar-nav main-navigation">
         <li class="active"><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="/profile">Profile</a></li>
         <li><a href="#why">why</a></li>
         <li><a href="#screenshot">Screenshots</a></li>
         <li><a href="#testimonial">Testimonial</a></li>
@@ -41,7 +41,8 @@
                     <a class="btn" href="/login">Login</a>
                 </div>
                 <div class="authenticated" style="display: none">
-                    Logged in as: <span id="user"></span>
+
+                    <strong>Hello:</strong> <br> <span id="user"></span>
                     <div>
                         <button onClick="logout()" class="btn">Logout</button>
                     </div>
@@ -158,33 +159,7 @@
                 </div>
 
 
-                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="750ms">
-                    <div class="features">
-                        <div class="icon">
-                            <i class="mdi-action-favorite"></i>
-                        </div>
-                        <div class="features-text">
-                            <h4>Exiting Questions to find Real YOU! </h4>
-                            <p>
 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="850ms">
-                  <div class="features">
-                    <div class="icon">
-                      <i class="mdi-hardware-phonelink"></i>
-                    </div>
-                    <div class="features-text">
-                      <h4>Fully Responsive Layout</h4>
-                      <p>
-
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -196,9 +171,9 @@
                 <div class="col-md-12">
                     <p class="copyright-text">
                         © iAM 2018 All right reserved. Developed by
-                        <a target="_blank" href="https://akshaythorve.com/">
+                        <strong><a target="_blank" href="https://akshaythorve.com/">
                             Akshay Thorve
-                        </a>
+                        </a></strong>
                     </p>
                 </div>
             </div>
@@ -236,7 +211,7 @@
             window.location.hash = '';
     }
     $.get("/user", function (data) {
-        $("#user").html(data.userAuthentication.details.name);
+        $("#user").html(data);
         $(".unauthenticated").hide()
         $(".authenticated").show()
     });
