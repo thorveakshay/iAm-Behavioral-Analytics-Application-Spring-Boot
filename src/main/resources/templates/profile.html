@@ -501,5 +501,35 @@
 <script src="js/smooth-scroll.js"></script>
 <script src="js/main.js"></script>
 
+
+<script>
+    $(document).ready(function () {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+    });
+</script>
+
+<script>
+    if (window.location.hash == '#_=_') {
+        history.replaceState ?
+            history.replaceState(null, null, window.location.href.split('#')[0]) :
+            window.location.hash = '';
+    }
+    $.get("/user", function (data) {
+        $("#user").html(data);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+    var logout = function () {
+        $.post("/logout", function () {
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
+        });
+        return true;
+    }
+</script>
+
+
 </body>
 </html>
