@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
+//rest controller to fetch the tweets.
+
 @RestController
 @RequestMapping(TwitterController.TWITTER_BASE_URI)
 public class TwitterController {
 
     public static final String TWITTER_BASE_URI = "tweets";
 
+    // IOC - inversion of control to Twitter API and injecting object to this class.
     @Autowired
     private Twitter twitter;
 

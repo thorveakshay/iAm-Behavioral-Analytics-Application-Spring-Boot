@@ -61,6 +61,13 @@ public class WelcomeController {
         return "welcome";
     }
 
+    @RequestMapping("/about")
+    public String about() {
+
+        return "about";
+    }
+
+
     @RequestMapping("/profile")
     public String viewProfile(Map<String, Object> model, Principal principal) {
 
@@ -89,7 +96,7 @@ public class WelcomeController {
         System.out.println("userName ++ " + userName);
         // String jsonData= JSON.stringify(data);
         StoreToMongoDB obj = new StoreToMongoDB();
-        String DbStatus = obj.saveToMongoDB(data, "todays_mood", userName, iAm);
+            String DbStatus = obj.saveToMongoDB(data, "todays_mood", userName, iAm);
         System.out.println("DB Status: " + DbStatus);
 
         model.put("time", "time time time");

@@ -103,6 +103,10 @@
 }
 
 
+p{
+    font-family:verdana;
+    font-size:140%;
+}
 body {
     background-color: #0A7189;
     color: #fff;
@@ -117,6 +121,10 @@ a {
 }
 
 h3 {
+    margin-bottom: 1%;
+}
+
+h4 {
     margin-bottom: 1%;
 }
 

@@ -25,10 +25,9 @@ import java.util.Map;
 @SpringBootApplication
 public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
 
+    //Dependancy injection using autowire
     @Autowired
     OAuth2ClientContext oauth2ClientContext;
-
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
@@ -51,7 +50,7 @@ public class SpringBootWebApplication extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable().authorizeRequests()
 
-                .antMatchers("/api/**", "/dashboard", "/welcome").authenticated().antMatchers("/**").permitAll()
+                .antMatchers("/api/**", "/dashboard", "/welcome","/about").authenticated().antMatchers("/**").permitAll()
                 .anyRequest().authenticated().and().logout().logoutSuccessUrl("/").permitAll();
 
     }

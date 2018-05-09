@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Akshay Thorve">
+
+
+    <title>User Profile</title>
+
+    <link href="css/profile.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="fonts/font-awesome.min.css" type="text/css" media="screen">
+    <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+<div class="navbar navbar-invers menu-wrap">
+    <div class="navbar-header text-center">
+        <a class="navbar-brand logo-right" href="javascript:void(0)"><i class="mdi-image-timelapse"></i>iAm</a>
+    </div>
+    <ul class="nav navbar-nav main-navigation">
+        <li ><a href="/">Home</a></li>
+
+        <li><a href="/profile">Profile</a></li>
+        <li class="active"><a href="#about">about</a></li>
+
+        <li style="margin-left: 5px">
+            <div id="wrapper">
+                <div class="unauthenticated">
+                    <a class="btn" href="/login">Login</a>
+                </div>
+                <div class="authenticated" style="display: none">
+
+                    <strong>Hello:</strong> <br> <span id="user"></span>
+                    <div>
+                        <button onClick="logout()" class="btn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <button class="close-button" id="close-button">Close Menu</button>
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+
+        <div class="navbar navbar-inverse sticky-navigation navbar-fixed-top" role="navigation" data-spy="affix"
+             data-offset-top="200">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="logo-left " href="#home"><i class="mdi-image-timelapse"></i>iAm</a>
+                </div>
+                <div class="navbar-right">
+                    <button class="menu-icon" id="open-button">
+                        <i class="mdi-navigation-menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100 p-3" style="margin-top: 68px;!important;">
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="https://source.unsplash.com/160x160/?sport">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img alt="" src="https://source.unsplash.com/160x160/?sport">
+        </div>
+
+    </div></div>
+
+<strong><h2>About Project</h2></strong>
+
+<p>
+
+    <br>
+    <br>
+    It is hard to think of a domain that is going to change the world as much as Software and Artificial Intelligence (AI) will, in the decades ahead. Also, according to Moore’s law “Overall processing power for computers will double every two years.” We already achieved goal of Web 1.0 i.e. connect the all population together. We did that using Internet, social media, web pages, forums etc. Also, we are working on Web 2.0 to achieve its goal of connecting all devices together and we are doing this using The Internet of things (IoT), Artificial Intelligence (AI), machine learning etc. Everything is good, and we will see much more progress in all these things in coming decades.
+    <br>
+<br>
+    I am always with evolving technology, but I think we are missing most Important thing in our life and that is nothing but ourselves. We are more interested in other people’s lives. We use Facebook, Instagram, Snapchat and many more to mention to look in to other people’s life. Mostly we do it passively, just check their profile, time line or news feeds. We want to know where they are going, what they are doing, what they are interested in what they are eating and all such things. I know that’s important in some cases, but we got one life its always beneficial to look in our life, analyze it, improve it, find ways which suites our personality.
+    <br>    <br>
+
+    That’s the reason I want to build something which will help people analyze, review themselves. Find out their personality type using some unique questions and possibly algorithms. Suggest connecting similar minded persons. Also generate some personalized tips to improve, refer some commercial books/products to them. Also, try to show some relevant news and articles to them using google feeds etc. Basically, make them love and focus on themselves.
+    <br>
+    <br>
+    Thank You!
+    <br>
+    <br>
+</p>
+
+
+<section id="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright-text">
+                    © iAM 2018 All right reserved. Developed by
+                    <strong><a target="_blank" href="https://akshaythorve.com/">
+                        Akshay Thorve
+                    </a></strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<script type="text/javascript" src="js/profile.js"></script>
+
+<script>
+
+
+
+
+
+    $(document).ready(function() {
+
+        $("#tab4").hover(function() {
+
+            $(".Tortoise1").show()
+            $(".Owl1").show()
+            $(".Rabbit1").show()
+            $(".Bear1").show()
+
+        });
+
+    });
+
+
+    $.get("/behaviour", function (data) {
+
+        $(".Tortoise").hide()
+        $(".Owl").hide()
+        $(".Rabbit").hide()
+        $(".Bear").hide()
+
+
+        if (data == "SUPPORTER/RELATER") {
+            $(".Tortoise").show()
+        }
+
+        if (data == "ANALYZER/THINKER") {
+            $(".Owl").show()
+        }
+
+        if (data == "PROMOTER/SOCIALIZER") {
+            $(".Rabbit").show()
+        }
+
+
+        if (data == "CONTROLLER/DIRECTOR") {
+            $(".Bear").show()
+        }
+
+
+    });
+
+
+    $.get("/tweets/%23smile", function (data) {
+        $("#hashtag").html(data);
+
+    });
+
+</script>
+
+
+
+
+<script src="js/ripples.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/jquery.mmenu.min.all.js"></script>
+<script src="js/count-to.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/smooth-on-scroll.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/main.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+    });
+</script>
+
+<script>
+    if (window.location.hash == '#_=_') {
+        history.replaceState ?
+            history.replaceState(null, null, window.location.href.split('#')[0]) :
+            window.location.hash = '';
+    }
+    $.get("/user", function (data) {
+        $("#user").html(data);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+    var logout = function () {
+        $.post("/logout", function () {
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
+        });
+        return true;
+    }
+</script>
+
+
+</body>
+</html>

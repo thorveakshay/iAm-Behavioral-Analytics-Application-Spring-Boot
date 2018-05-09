@@ -10,6 +10,11 @@
     <title>User Profile</title>
 
     <link href="css/profile.css" rel="stylesheet">
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/ripples.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -38,13 +43,9 @@
     <ul class="nav navbar-nav main-navigation">
         <li ><a href="/">Home</a></li>
         <li class="active"><a href="/profile">Profile</a></li>
-        <li><a href="#why">why</a></li>
-        <li><a href="#screenshot">Screenshots</a></li>
-        <li><a href="#testimonial">Testimonial</a></li>
-        <li><a href="#clients">Contact</a></li>
-        <!-- <li><a href="/login">Login</a></li> -->
+        <li><a href="/about">about</a></li>
 
-        <li>
+        <li style="margin-left: 5px">
             <div id="wrapper">
                 <div class="unauthenticated">
                     <a class="btn" href="/login">Login</a>
@@ -138,6 +139,7 @@
                         </h3>
                         <br>
                         <img class="" alt="turtle" src="https://source.unsplash.com/460x320/?turtle"><br>
+
 
 
                         <p><br>
@@ -257,8 +259,8 @@
                     </div>
                 </div>
 
-
-            </div>
+<br><strong style="color: green">Ask your friends their behavioral pattern and learn how to effectively communicate with them!</strong>
+<br><br>            </div>
             <div class="tab-pane fade in" style="max-width: 75rem;text-align: center;margin:0 auto;" id="tab2">
                 <a class="twitter-timeline" href="https://twitter.com/WIRED?ref_src=twsrc%5Etfw">Tweets by WIRED</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -266,7 +268,7 @@
             <div class="tab-pane fade in" id="tab3">
                 <span id="hashtag"></span>
 
-
+                <br><br> <strong><h3 style="color: green;text-align: center">Coming Soon</h3></strong><br><br>
 
 
             </div>
@@ -500,6 +502,36 @@
 <script src="js/smooth-on-scroll.js"></script>
 <script src="js/smooth-scroll.js"></script>
 <script src="js/main.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+    });
+</script>
+
+<script>
+    if (window.location.hash == '#_=_') {
+        history.replaceState ?
+            history.replaceState(null, null, window.location.href.split('#')[0]) :
+            window.location.hash = '';
+    }
+    $.get("/user", function (data) {
+        $("#user").html(data);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+    var logout = function () {
+        $.post("/logout", function () {
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
+        });
+        return true;
+    }
+</script>
+
 
 </body>
 </html>

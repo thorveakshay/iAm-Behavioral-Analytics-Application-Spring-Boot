@@ -26,7 +26,7 @@ public class StoreToMongoDB {
             DBObject dbObject = (DBObject) JSON.parse(data);
             dbObject.put("_id", userName);
             dbObject.put("iAm", iAm);
-            collection.insert(dbObject);
+            collection.save(dbObject);
 
             // DBCursor cursorDoc = collection.find();
             // while (cursorDoc.hasNext()) {
